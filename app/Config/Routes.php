@@ -29,9 +29,20 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::index');
 
-service('auth')->routes($routes);
+// service('auth')->routes($routes);
+
+$routes->get('/', static function () {
+    $response = Services::response();
+    return $response->setContentType('application/json')
+    ->setStatusCode(200)
+    ->setJSON([
+        'CodeIgniter' => \CodeIgniter\CodeIgniter::CI_VERSION
+    ]);
+});
+
+$routes->post('auth/token', '\App\Controllers\AuthController::login');
 
 /*
  * --------------------------------------------------------------------
