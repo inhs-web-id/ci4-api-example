@@ -62,7 +62,7 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        //'tokens' => ['before' => ['api/*']],
+        'tokens' => ['before' => ['api/*']],
         'auth-rates' => [
             'before' => [
                 'login*', 'register', 'auth/*'

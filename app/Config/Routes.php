@@ -42,7 +42,12 @@ $routes->get('/', static function () {
     ]);
 });
 
-$routes->post('auth/token', '\App\Controllers\AuthController::login');
+$routes->post('auth/login', '\App\Controllers\AuthController::login');
+$routes->post('auth/register', '\App\Controllers\AuthController::register');
+$routes->get('auth/logout', '\App\Controllers\AuthController::logout');
+
+
+$routes->get('api/user/profile', '\App\Controllers\Api\UserController::profile');
 
 /*
  * --------------------------------------------------------------------
