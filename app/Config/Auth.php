@@ -133,7 +133,7 @@ class Auth extends ShieldAuth
      * circumstances might need a different header.
      */
     public array $authenticatorHeader = [
-        'tokens' => 'PersonalAccessCodes',
+        'tokens' => 'Authorization',
     ];
 
     /**
